@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 
 import com.jayway.restassured.builder.RequestSpecBuilder;
+import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
 import static com.jayway.restassured.RestAssured.given;
@@ -52,6 +53,38 @@ public class ProximidadTest {
 		Assert.assertEquals(result,62.661620265493795,0.00001);
 		Assert.assertEquals(resul,false);
 		
+	}
+	
+	@Test
+	public void testStatusOK(){
+		
+	String url = baseURL + path;
+	String APIUrl = url;
+	
+	String APIBody = "{\"coordenada1\": { \"latitud\": \"7.137157\",  \"longitud\":\"-73.122247\"}, \"coordenada2\": { \"latitud\": \"7.136681\", \"longitud\":\"-73.122551\" } }";
+	
+    //Solicitud de Construccion por medio de RequestSpecBuilder
+	RequestSpecBuilder builder = new RequestSpecBuilder();
+	
+	builder.setBody(APIBody);
+	builder.setContentType("application/json");
+	
+	RequestSpecification requestSpec = builder.build();
+	
+
+
+	Response response = given().spec(requestSpec).when().post(APIUrl);
+	
+	
+	JsonPath jsonpath = new JsonPath(response.body().asString());
+	
+	String status = jsonpath.getString("distancia");
+	assertNotNull(status);
+	
+	String stat = jsonpath.getString("Ubicacion");
+	assertNotNull(stat);
+	
+	 
 	}
 
 }

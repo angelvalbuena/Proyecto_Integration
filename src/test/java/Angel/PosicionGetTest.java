@@ -14,6 +14,8 @@ import org.testng.Assert;
 
 import com.jayway.restassured.response.Response;
 
+import clasesDelBRT.Coordenadas;
+
 public class PosicionGetTest {
 
 	String baseURL = "http://localhost:8080";
@@ -24,24 +26,27 @@ public class PosicionGetTest {
 		
 			String url = baseURL + path;
 			
-			//make get request to fetch capital of norway
+			//make get request 
 		Response resp = get(url);
 			
 			//Fetching response in JSON
 			JSONObject jsonResponse = new JSONObject(resp.asString());
 			
 			
-			//Fetching value of capital parameter
+			//Fetching value 
 			String Ruta = jsonResponse.getString("Ruta");
 			String id = jsonResponse.getString("id");
 			int Buses = jsonResponse.getInt("Buses");
-			//double Coordenada = jsonResponse.getDouble("Coordenada");
+			JSONObject Coordenada = jsonResponse.getJSONObject("Coordenada");
+			Object latitud = Coordenada.get("latitud");
+			Object longitud = Coordenada.get("longitud");
 			
-			//Asserting that Ruta is Ruta1
+			//Asserting value
 			Assert.assertEquals(Ruta, "Ruta1");
 			Assert.assertEquals(Buses, 2);
 			Assert.assertEquals(id, "P10XYZ325");
-			
+			//Assert.assertEquals(latitud, "8.811419390119175");
+			//Assert.assertEquals(longitud, "-71.3639097579193");
 		}
 
 		
@@ -76,8 +81,17 @@ public class PosicionGetTest {
 		String statu = response.path("Tiempo");
 		assertNotNull(statu);
 		
-		/*double st = response.path("Coordenada");
-		assertNotNull(st);*/
+		Object st = response.path("Coordenada");
+		assertNotNull(st);
+		
+		
+		JSONObject jsonResponse = new JSONObject(response.asString());
+		JSONObject Coordenada = jsonResponse.getJSONObject("Coordenada");
+		Object lat = Coordenada.get("latitud");
+		assertNotNull(lat);
+		
+		Object lon = Coordenada.get("longitud");
+		assertNotNull(lon);
 		
 	}
 }
