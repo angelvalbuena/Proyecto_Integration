@@ -72,7 +72,7 @@ public class DistanciaEntreCordenadas {
 	 * @param entrada
 	 * @return double
 	 */
-	private double calcular(ArrayList<Coordenadas> entrada) {
+	public double calcular(ArrayList<Coordenadas> entrada) {
 	
 		double lat1=0,lng1=0;
 		double lat2=0,lng2=0;
