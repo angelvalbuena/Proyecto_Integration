@@ -16,7 +16,7 @@ import org.junit.Test;
 
 
 
-public class CalDist {
+public class CalDistTest {
 
 	@Test
 	public void ejemplo() {
