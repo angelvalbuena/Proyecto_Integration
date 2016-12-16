@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   	<properties>
 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.build.testEncoding>UTF-8</project.build.testEncoding>
+		
 </properties>
   <dependencies>
    <dependency>
@@ -131,9 +131,7 @@
 	 <configuration>
         <encoding>${project.build.sourceEncoding}</encoding>
     </configuration> 
-				<!--<configuration>
-          <argLine>-Dfile.encoding=UTF-8</argLine>
-           </configuration>  -->
+				
         </plugin>
 		<plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -168,10 +166,7 @@
 			 
          
     </plugins>
-	  <properties>
-<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.build.testEncoding>UTF-8</project.build.testEncoding>
-</properties>
+	  
     <!-- <sourceDirectory>src/main/java</sourceDirectory>  -->
     <finalName>cloudBRT</finalName>
   </build>
