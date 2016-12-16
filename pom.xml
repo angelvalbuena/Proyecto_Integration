@@ -7,7 +7,10 @@
   <version>1</version>
   <name>cloudBRT Maven Webapp</name>
   <url>http://maven.apache.org</url>
-	
+  	<properties>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.testEncoding>UTF-8</project.build.testEncoding>
+</properties>
   <dependencies>
    <dependency>
 			<groupId>org.glassfish</groupId>
@@ -161,10 +164,7 @@
 				   </execution>
 				</executions>
 			</plugin>
-	     <properties>
-<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.build.testEncoding>UTF-8</project.build.testEncoding>
-</properties>
+	     
 			 
          
     </plugins>
