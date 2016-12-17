@@ -118,7 +118,7 @@
 				<configuration>
 					<warSourceDirectory>WebContent</warSourceDirectory>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<encoding>${project.build.sourceEncoding}</encoding>
+					
 				</configuration>
 
 			</plugin>
@@ -127,8 +127,8 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.15</version>
 	 <configuration>
-        <encoding>${project.build.sourceEncoding}</encoding>
-    </configuration> 
+          <skipTests>true</skipTests>
+        </configuration> 
 				
         </plugin>
 		<plugin>
