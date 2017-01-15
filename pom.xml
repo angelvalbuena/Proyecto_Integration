@@ -9,7 +9,11 @@
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>  
+    <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding> 
+	  <property>
+      <name>test</name>
+      <value>some-value</value>
+     </property>
   </properties>
   <dependencies>
    <dependency>
